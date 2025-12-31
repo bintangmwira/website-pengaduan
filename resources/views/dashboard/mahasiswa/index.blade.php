@@ -54,7 +54,7 @@
             <div class="w-100 px-md-4">
 
                  <div class="welcome-text">
-                    Hai, <strong>{{ auth()->user()->name }}</strong> 👋  
+                    Halo, <strong>{{ auth()->user()->name }}</strong> 👋  
                 </div>
 
                 <h3 class="fw-bold mb-3">
