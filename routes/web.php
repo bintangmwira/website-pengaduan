@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataMahasiswaController;
-use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +27,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:mahasiswa'])->group(function () {
-    Route::get('/dashboard/mahasiswa', function () {return view('dashboard.mahasiswa.index');})->name('dashboard.mahasiswa');
-    Route::get('/dashboard/mahasiswa/tracking', function () {return view('dashboard.mahasiswa.tracking');})->name('dashboard.mahasiswa.tracking');
+    Route::get('/beranda', function () {return view('dashboard.mahasiswa.index');})->name('dashboard.mahasiswa');
+    Route::get('/laporan-mu', function () {return view('dashboard.mahasiswa.semuaLaporan');})->name('dashboard.mahasiswa.laporan-mu');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

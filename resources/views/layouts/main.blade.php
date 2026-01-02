@@ -70,8 +70,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dashboard.mahasiswa.tracking') ? 'active' : '' }}" href="{{ route('dashboard.mahasiswa.tracking') }}">
-                        Status Laporan
+                    <a class="nav-link {{ request()->routeIs('dashboard.mahasiswa.laporan-mu') ? 'active' : '' }}" href="{{ route('dashboard.mahasiswa.laporan-mu') }}">
+                        Cek Laporan
                     </a>
                 </li>
             </ul>
