@@ -105,8 +105,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Alasan</label>
-                            <textarea class="form-control" rows="4" placeholder="Tuliskan alasan"></textarea>
+                            <label class="form-label">Keluhan</label>
+                            <textarea class="form-control" rows="4" placeholder="Tuliskan keluhan anda"></textarea>
                         </div>
 
                         <div class="mb-3">
