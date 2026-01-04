@@ -27,8 +27,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:mahasiswa'])->group(function () {
-    Route::get('/beranda', function () {return view('dashboard.mahasiswa.index');})->name('dashboard.mahasiswa');
-    Route::get('/laporan-mu', function () {return view('dashboard.mahasiswa.semuaLaporan');})->name('dashboard.mahasiswa.laporan-mu');
+    //form pengaduan
+    Route::get('/pengaduan', [MahasiswaController::class, 'showFormPengaduan'])->name('mahasiswa.pengaduan');
+    Route::post('/pengaduan', [MahasiswaController::class, 'storeFormPengaduan'])->name('mahasiswa.pengaduan.store');
+
+    //tracking semua laporan
+    Route::get('/laporan-mu', [MahasiswaController::class, 'allLaporan'])->name('mahasiswa.semua.laporan');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

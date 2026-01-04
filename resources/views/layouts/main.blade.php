@@ -54,7 +54,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('dashboard.mahasiswa') }}">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('mahasiswa.pengaduan') }}">
             <img src="{{ asset('assets/img/logo-wp.png') }}" alt="Logo" height="36">
             <span class="fw-semibold">Website Pengaduan</span>
         </a>
@@ -64,13 +64,13 @@
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dashboard.mahasiswa') ? 'active' : '' }}" 
-                    href="{{ route('dashboard.mahasiswa') }}">
+                    <a class="nav-link {{ request()->routeIs('mahasiswa.pengaduan') ? 'active' : '' }}" 
+                    href="{{ route('mahasiswa.pengaduan') }}">
                         Beranda
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dashboard.mahasiswa.laporan-mu') ? 'active' : '' }}" href="{{ route('dashboard.mahasiswa.laporan-mu') }}">
+                    <a class="nav-link {{ request()->routeIs('mahasiswa.semua.laporan') ? 'active' : '' }}" href="{{ route('mahasiswa.semua.laporan') }}">
                         Cek Laporan
                     </a>
                 </li>

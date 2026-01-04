@@ -83,50 +83,63 @@
                 <div class="card-body">
                     <h5 class="mb-3">Form Laporan Pengaduan</h5>
 
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Nama</label>
-                            <input type="text" class="form-control" placeholder="Masukkan nama">
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">NPM</label>
-                            <input type="text" class="form-control" placeholder="Masukkan NPM">
-                        </div>
-
+                    <form action="{{ route('mahasiswa.pengaduan.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label class="form-label">Kategori</label>
-                            <select class="form-select">
+                            <select class="form-select" name="kategori">
                                 <option value="">-- pilih kategori --</option>
-                                <option>Fasilitas</option>
-                                <option>Akademik</option>
-                                <option>Lainnya</option>
+                                @foreach ($kategori as $row)
+                                    <option value="{{ $row }}">{{ $row }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Keluhan</label>
-                            <textarea class="form-control" rows="4" placeholder="Tuliskan keluhan anda"></textarea>
+                            <textarea name="keluhan" class="form-control" rows="4" placeholder="Tuliskan keluhan anda"></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Tingkat / Level</label>
-                            <select class="form-select">
+                            <select class="form-select" name="tingkat_kepentingan">
                                 <option value="">-- pilih level --</option>
-                                <option>Sedang</option>
-                                <option>Penting</option>
-                                <option>Sangat Penting</option>
+                                @foreach ($tingkat_kepentingan as $row)
+                                    <option value="{{ $row }}">{{ $row }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Bukti</label>
-                            <input type="file" class="form-control">
+                            <input type="file" class="form-control" name="bukti" id="fileUpload" accept="image/*">
+                            <img id="imagePreview" src=""alt="Preview Bukti"style="display:none; margin-top:10px; max-width:200px;">
                         </div>
+
+
+                         <script>
+                                document.getElementById('fileUpload').addEventListener('change', function() {
+                                    const file = this.files[0];
+                                    if (file) {
+                                        const reader = new FileReader();
+                                        reader.onload = function(e) {
+                                            document.getElementById('imagePreview').setAttribute('src', e.target.result);
+                                            document.getElementById('imagePreview').style.display = 'block';
+                                        }
+                                        reader.readAsDataURL(file);
+                                    }
+                                });
+                            </script>
 
                         <button type="submit" class="btn btn-ungu w-100 mt-2">
                             Kirim Laporan
                         </button>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                {{ $errors->first() }}
+                            </div>
+                        @endif
+
                     </form>
                 </div>
             </div>
