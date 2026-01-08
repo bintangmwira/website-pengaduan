@@ -55,8 +55,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('mahasiswa.pengaduan') }}">
-            <img src="{{ asset('assets/img/logo-wp.png') }}" alt="Logo" height="36">
-            <span class="fw-semibold">Website Pengaduan</span>
+            <img src="{{ asset('assets/img/logo-wp-new.png') }}" alt="Logo" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>

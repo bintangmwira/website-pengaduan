@@ -27,8 +27,7 @@
                 backdrop-filter: blur(6px);
             }
             .logo {
-                width: 60px;
-                height: 60px;
+                max-width: 200px;
                 margin: 0 auto 14px;
                 border-radius: 50%;
                 overflow: hidden;
@@ -97,11 +96,11 @@
 
     <div class="card">
         <div class="logo">
-            <img src="/assets/img/logo-wp.png" alt="Logo WP" />
+            <img src="/assets/img/logo-wp-new.png" alt="Logo WP"  />
         </div>
 
-        <h2>Selamat Datang</h2>
-        <p class="subtitle">Silakan masuk terlebih dahulu untuk ke Website Pengaduan</p>
+        {{-- <h2>Selamat Datang</h2>
+        <p class="subtitle">Silakan masuk terlebih dahulu untuk ke Website Pengaduan</p> --}}
 
         <form action="{{ route('login') }}" method="POST">
             @csrf
