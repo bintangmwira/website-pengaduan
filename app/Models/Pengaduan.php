@@ -17,7 +17,7 @@ class Pengaduan extends Model
         'kategori',
         'keluhan',
         'tingkat_kepentingan',
-        'bukti',
+        'bukti', 
         'status'
     ];
 
