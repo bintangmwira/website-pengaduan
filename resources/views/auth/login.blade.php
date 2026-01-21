@@ -14,17 +14,18 @@
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                background: url('https://images.unsplash.com/photo-1519682337058-a94d519337bc') no-repeat center/cover;
+                background: #F6F5FB;
                 font-family: "Poppins", sans-serif;
             }
             .card {
-                width: 360px;
+                width: 350px;
                 background: #ffffffee;
                 padding: 32px 28px;
-                border-radius: 18px;
+                border-radius: 15px;
                 text-align: center;
                 box-shadow: 0 8px 20px rgba(0,0,0,0.15);
                 backdrop-filter: blur(6px);
+                border: none;
             }
             .logo {
                 max-width: 200px;
@@ -44,9 +45,17 @@
                 font-weight: 600;
             }
             p.subtitle {
-                margin-top: 4px;
                 font-size: 14px;
-                color: #666;
+                color: #a9a9a9;
+                margin-top: -10px;
+            }
+            p.sub-header {
+                font-size: 18px;
+                color: #1F2937;
+                font-weight: 600;
+            }
+            form{
+                margin-top: -14px;
             }
             .input-group {
                 text-align: left;
@@ -81,10 +90,10 @@
             }
 
             .btn {
-                width: 100%;
+                width: 50%;
                 margin-top: 18px;
                 padding: 12px;
-                background: #c77dff;
+                background: #4D9050;
                 color: white;
                 border: none;
                 border-radius: 8px;
@@ -99,23 +108,23 @@
             <img src="/assets/img/logo-wp-new.png" alt="Logo WP"  />
         </div>
 
-        {{-- <h2>Selamat Datang</h2>
-        <p class="subtitle">Silakan masuk terlebih dahulu untuk ke Website Pengaduan</p> --}}
+        <p class="sub-header">Selamat Datang</p>
+        <p class="subtitle">Silakan masuk terlebih dahulu untuk masuk ke beranda</p>
 
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="input-group">
-                <label>email</label>
+                <label>Email</label>
                 <input type="text" name="email" placeholder="Masukkan email anda" />
             </div>
 
             <div class="input-group">
-                <label>kata sandi</label>
+                <label>Kata Sandi</label>
                 <input type="password" name="password" placeholder="Masukkan kata sandi" />
             </div>
 
             <div class="options">
-                <label><input type="checkbox" />Ingat </label>
+                <label><input type="checkbox" />Ingat</label>
                 <a href="#" style="font-size: 12px; color: #555">Lupa Kata Sandi?</a>
             </div>
 

@@ -2,158 +2,265 @@
 @section('content')
 
 <style>
-.report-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  max-width: 900px;
-  margin: 0 auto 14px auto;
-}
+    body {
+        background: #f5f6fa;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-.badge-process {
-  background-color: #b38bff;
-  color: #fff;
-}
+    .wrapper{
+         padding: 10px 40px 40px 40px;
+    }
 
-.badge-success {
-  background-color: #4caf50;
-  color: #fff;
-}
+    .laporan-container {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr 1fr;
+        gap: 24px;
+        margin-top: 30px;
+    }
 
-.badge-received {
-  background-color: #9c6ade;
-  color: #fff;
-}
 
-.status-pill {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
+    /* Riwayat */
+    .card-riwayat {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        border: none;
+        max-height: 330px;
+    }
 
-.status-process {
-  background-color: #ffe8a1;
-  color: #856404;
-}
+    .card-header-riwayat {
+        background: #9b59b6;
+        color: #fff;
+        padding: 16px;
+        border-radius: 12px 12px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
 
-/* Button ungu */
-.btn-outline-purple {
-  border-color: #9c6ade;
-  color: #9c6ade;
-}
+    .isi-card{
+      padding: 0 20px 0 20px;
+    }
 
-.btn-outline-purple:hover {
-  background-color: #9c6ade;
-  color: #fff;
-}
+    .riwayat-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0;
+        font-weight: 500;
+    }
 
-/* Pagination */
-.page-item.active .page-link {
-  background-color: #9c6ade;
-  border-color: #9c6ade;
-}
+    .riwayat-item.active {
+        background: #f0e6f6;
+        border-radius: 10px;
+        padding: 10px;
+    }
 
-.page-link {
-  color: #9c6ade;
-}
+    .icon-check {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #2ecc71;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
 
-.head-text{
-    text-align: center;
-    margin-top: -20px;
-}
+    .icon-process {
+        background: #3498db;
+    }
 
+    .icon-purple {
+        background: #9b59b6;
+    }
+
+    /* Tracking */
+    .tracking-item {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 24px;
+    }
+
+    .tracking-item::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 0;
+        width: 12px;
+        height: 12px;
+        background: #9b59b6;
+        border-radius: 50%;
+    }
+
+    .tracking-item::after {
+        content: '';
+        position: absolute;
+        left: 11px;
+        top: 12px;
+        width: 2px;
+        height: 100%;
+        background: #ddd;
+    }
+
+    .tracking-item:last-child::after {
+        display: none;
+    }
+
+    .tracking-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 14px 16px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    }
+
+    .tracking-title {
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .tracking-date {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 6px;
+    }
+
+    .tracking-link {
+        color: #9b59b6;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    /* Rincian */
+    .card-rincian {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        border: none;
+        max-height: 330px;
+    }
+
+    .card-header-rincian {
+        background: #E6D4F0;
+        color: #9b59b6;
+        padding: 16px;
+        border-radius: 12px 12px 0 0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+    .isi-card{
+      padding: 0 20px 0 20px;
+    }
+    .rincian-row {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        color: #fff;
+        background: #e74c3c;
+    }
 </style>
 
-<div class="container my-5">
-    <div class="head-text">
-        <h4 class="fw-bold mb-2">Status Laporan</h4>
-        <p class="mb-4">
-            Halo, <strong>Bintang Mustika</strong> 👋 Berikut adalah riwayat laporan pengaduan Anda
-        </p>
-    </div>
-  
+<div class="wrapper">
 
-  <!-- Card 1 -->
-  <div class="report-card mb-3">
-    <div class="d-flex justify-content-between align-items-start">
-      <div>
-        <span class="badge badge-process mb-2">Laporan Diproses</span>
-        <h6 class="fw-semibold mt-2">Proyektor tidak menyala</h6>
-        <p class="text-muted mb-1">
-          ID Laporan: 12457 &nbsp;|&nbsp; Kategori: Fasilitas Kampus
-        </p>
-        <small class="text-muted">12 Januari 2026</small>
-      </div>
-      <div class="text-end">
-        <span class="status-pill status-process mb-2 d-inline-block">
-          Diproses ➜
-        </span>
-        <br />
-        <button class="btn btn-outline-purple btn-sm mt-2">
-          👁 Lihat Progress
-        </button>
-      </div>
-    </div>
-  </div>
+    <div class="laporan-container">
 
-  <!-- Card 2 -->
-  <div class="report-card mb-3">
-    <div class="d-flex justify-content-between align-items-start">
-      <div>
-        <span class="badge badge-success mb-2">Laporan Selesai</span>
-        <h6 class="fw-semibold mt-2">AC kelas rusak</h6>
-        <p class="text-muted mb-1">
-          ID Laporan: 12456 &nbsp;|&nbsp; Kategori: Fasilitas Kampus
-        </p>
-        <small class="text-muted">10 Januari 2026</small>
-      </div>
-      <div class="text-end">
-        <button class="btn btn-outline-purple btn-sm mt-4">
-          👁 Lihat Progress
-        </button>
-      </div>
-    </div>
-  </div>
+    <!-- RIWAYAT -->
+    <div class="card-riwayat">
+        <div class="card-header-riwayat">Riwayat Laporan</div>
 
-  <!-- Card 3 -->
-  <div class="report-card mb-4">
-    <div class="d-flex justify-content-between align-items-start">
-      <div>
-        <span class="badge badge-received mb-2">Laporan Diterima</span>
-        <h6 class="fw-semibold mt-2">Kantin kotor</h6>
-        <p class="text-muted mb-1">
-          ID Laporan: 12430 &nbsp;|&nbsp; Kategori: Kebersihan
-        </p>
-        <small class="text-muted">5 Januari 2026</small>
-      </div>
-      <div class="text-end">
-        <button class="btn btn-outline-purple btn-sm mt-4">
-          👁 Lihat Progress
-        </button>
-      </div>
-    </div>
-  </div>
+        <div class="isi-card">
+            <div class="riwayat-item">
+                <div class="icon-check">✓</div> Lift Rusak
+            </div>
 
-  <!-- Pagination -->
-  <div class="d-flex justify-content-between align-items-center">
-    <small class="text-muted">1–3 dari 3</small>
-    <nav>
-      <ul class="pagination pagination-sm mb-0">
-        <li class="page-item disabled">
-          <a class="page-link">Prev</a>
-        </li>
-        <li class="page-item active">
-          <a class="page-link">1</a>
-        </li>
-        <li class="page-item disabled">
-          <a class="page-link">Next</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+            <div class="riwayat-item">
+                <div class="icon-check">✓</div> Ubin Pecah
+            </div>
+
+            <div class="riwayat-item">
+                <div class="icon-check">✓</div> LMS Bug di HP
+            </div>
+
+            <div class="riwayat-item">
+                <div class="icon-check icon-process">⚙</div> AC Rusak
+            </div>
+
+            <div class="riwayat-item active">
+                <div class="icon-check icon-purple">✓</div> Proyektor Tidak Berfungsi
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TRACKING -->
+    <div class="card">
+        <div class="tracking-item">
+            <div class="tracking-card">
+                <div class="tracking-title">Laporan Diterima</div>
+                <div class="tracking-date">Selasa, 23 Desember 2025 10:50</div>
+                Proyektor di ruangan 403 tidak bisa dinyalakan.
+                <br>
+                <a href="#" class="tracking-link">Lihat Rincian...</a>
+            </div>
+        </div>
+
+        <div class="tracking-item">
+            <div class="tracking-card">
+                <div class="tracking-title">Laporan Diproses</div>
+                <div class="tracking-date">Selasa, 23 Desember 2025 12:00</div>
+                Teknisi sedang memperbaiki proyektor.
+                <br>
+                <a href="#" class="tracking-link">Lihat Rincian...</a>
+            </div>
+        </div>
+
+        <div class="tracking-item">
+            <div class="tracking-card">
+                <div class="tracking-title">Laporan Selesai Ditangani</div>
+                <div class="tracking-date">Selasa, 24 Desember 2025 10:50</div>
+                Proyektor sudah selesai diperbaiki.
+                <br>
+                <a href="#" class="tracking-link">Lihat Rincian...</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- RINCIAN -->
+    <div class="card-rincian">
+        <div class="card-header-rincian">Rincian Status</div>
+        <div class="isi-card">
+          <div class="rincian-row"><strong>Pelapor:</strong> Kevin Gunawan</div>
+            <div class="rincian-row"><strong>Tanggal:</strong> Selasa, 23 Desember 2025</div>
+            <div class="rincian-row"><strong>Kategori:</strong> Fasilitas Kampus</div>
+            <div class="rincian-row"><strong>ID Laporan:</strong> 12345678</div>
+            <div class="rincian-row">
+                <strong>Prioritas:</strong>
+                <span class="badge">Tinggi</span>
+            </div>
+
+            <div class="rincian-row" style="margin-top:10px;">
+                Proyektor di ruangan 403 tidak bisa dinyalakan.
+                <a href="#" class="tracking-link">Lihat bukti</a>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+</div>
+
 
 
 @endsection
