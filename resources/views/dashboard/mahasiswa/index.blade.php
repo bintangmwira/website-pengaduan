@@ -1,27 +1,31 @@
 @extends('layouts.main')
 @section('content')
     <style>
+        body {
+            background-color: #ffffff;
+        }
+
         .page-wrapper {
             padding: 40px;
         }
 
         .custom-card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
             height: 100%;
             padding: 18px 20px;
-            border: none;
         }
 
         .btn-ungu {
-            background-color: #9A5EB1;
+            background-color: #525AF9;
             color: #fff;
             font-weight: 600;
         }
 
         .btn-ungu:hover {
-            background-color: #995eb1d8;
+            background-color: #747BFA;
             color: #fff;
         }
 
@@ -55,7 +59,7 @@
                         Halo, <strong>{{ auth()->user()->name }}</strong> 👋
                     </div>
 
-                    <h3 class="fw-bold mb-3">
+                    <h3 class="fw-bold mb-3" style="color: #141414">
                         Selamat Datang di Website Pengaduan!
                     </h3>
 
@@ -67,7 +71,7 @@
                     </p>
 
                     <div class="img-dashboard">
-                        <img src="{{ asset('assets/img/vector-2.png') }}" alt="Ilustrasi Pengaduan">
+                        <img src="{{ asset('assets/img/vector-1.png') }}" alt="Ilustrasi Pengaduan">
                     </div>
 
                 </div>

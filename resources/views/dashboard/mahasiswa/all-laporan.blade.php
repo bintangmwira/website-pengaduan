@@ -2,7 +2,7 @@
 @section('content')
     <style>
         body {
-            background: #f5f6fa;
+            background: #ffffff;
             font-family: 'Segoe UI', sans-serif;
         }
 
@@ -219,7 +219,7 @@
                     </div>
                 </div>
 
-                <div class="tracking-item">
+                {{-- <div class="tracking-item">
                     <div class="tracking-card">
                         <div class="tracking-title">Laporan Diproses</div>
                         <div class="tracking-date">Selasa, 23 Desember 2025 12:00</div>
@@ -227,7 +227,7 @@
                         <br>
                         <a href="#" class="tracking-link">Lihat Rincian...</a>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="tracking-item">
                     <div class="tracking-card">

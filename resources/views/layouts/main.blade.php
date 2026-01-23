@@ -11,14 +11,10 @@
 </head>
 
 <style>
-    body {
-        background-color: #F6F5FB
-    }
-
     .profile-icon {
         width: 38px;
         height: 38px;
-        color: #9A5EB1;
+        color: #525AF9;
         font-size: 18px;
         text-decoration: none;
     }
@@ -33,7 +29,7 @@
     }
 
     .nav-item .nav-link.active {
-        color: #9A5EB1 !important;
+        color: #525AF9 !important;
         font-weight: 700;
     }
 
@@ -43,7 +39,7 @@
 
 
     .footer {
-        background-color: #9A5EB1;
+        background-color: #525AF9;
         color: #ffffff;
         text-align: center;
         padding: 12px 20px;
@@ -57,7 +53,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('mahasiswa.pengaduan') }}">
-                <img src="{{ asset('assets/img/logo-wp-new.png') }}" alt="Logo" height="50">
+                <img src="{{ asset('assets/img/logo-wp2.png') }}" alt="Logo" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>
