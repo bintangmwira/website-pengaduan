@@ -1,4 +1,5 @@
 @extends('layouts.main')
+
 @section('content')
     <style>
         body {
@@ -12,166 +13,233 @@
 
         .laporan-container {
             display: grid;
-            grid-template-columns: 1fr 1.2fr 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 24px;
             margin-top: 30px;
         }
 
-
-        /* Riwayat */
-        .card-riwayat {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border: none;
-            max-height: 330px;
-        }
-
-        .card-header-riwayat {
-            background: #9b59b6;
-            color: #fff;
-            padding: 16px;
-            border-radius: 12px 12px 0 0;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .isi-card {
-            padding: 0 20px 0 20px;
-        }
-
-        .riwayat-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            font-weight: 500;
-        }
-
-        .riwayat-item.active {
-            background: #f0e6f6;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        .icon-check {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: #2ecc71;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .icon-process {
-            background: #3498db;
-        }
-
-        .icon-purple {
-            background: #9b59b6;
-        }
-
-        /* Tracking */
-        .tracking-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 24px;
-        }
-
-        .tracking-item::before {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: #9b59b6;
-            border-radius: 50%;
-        }
-
-        .tracking-item::after {
-            content: '';
-            position: absolute;
-            left: 11px;
-            top: 12px;
-            width: 2px;
-            height: 100%;
-            background: #ddd;
-        }
-
-        .tracking-item:last-child::after {
-            display: none;
-        }
-
-        .tracking-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 14px 16px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-        }
-
-        .tracking-title {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .tracking-date {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 6px;
-        }
-
-        .tracking-link {
-            color: #9b59b6;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        /* Rincian */
+        /* ================= RINCIAN (MINIMALIS) ================= */
         .card-rincian {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border: none;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             max-height: 330px;
+            padding-bottom: 8px;
         }
 
         .card-header-rincian {
-            background: #E6D4F0;
-            color: #9b59b6;
-            padding: 16px;
-            border-radius: 12px 12px 0 0;
+            background: transparent;
+            color: #111827;
+            padding: 14px 20px 10px 20px;
             font-weight: 600;
+            font-size: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-            text-align: center;
-            justify-content: center;
+            gap: 8px;
+            border-bottom: 1px solid #eeeeee;
+            margin-bottom: 10px;
+        }
+
+        .card-header-rincian i {
+            color: #525AF9;
+            font-size: 16px;
         }
 
         .isi-card {
-            padding: 0 20px 0 20px;
+            padding: 0 20px;
+            font-size: 13.5px;
+            color: #374151;
         }
 
         .rincian-row {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .rincian-row strong {
+            font-weight: 500;
+            color: #111827;
+        }
+
+        /* Status */
+        .status-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            color: #16a34a;
+            margin-bottom: 12px;
+        }
+
+        .status-row i {
             font-size: 14px;
         }
 
+        /* Badge */
         .badge {
-            display: inline-block;
+            background: #fee2e2;
+            color: #b91c1c;
+            font-size: 11px;
             padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            color: #fff;
-            background: #e74c3c;
+            border-radius: 999px;
+        }
+
+        /* Deskripsi */
+        .deskripsi {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+
+        /* ================= ALL REQUESTS ================= */
+        .all-requests h3 {
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9e9e9e;
+            font-size: 16px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            border-radius: 6px;
+            border: none;
+            background: #f3f3f3;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .search-input::placeholder {
+            color: #9e9e9e;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: #ededed;
+        }
+
+        /* ================= CATEGORY FILTER ================= */
+        .category-wrapper {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .category-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            padding: 6px 12px;
+            font-size: 12.5px;
+            border-radius: 8px;
+            background: #f3f4f6;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .category-item:hover {
+            background: #e5e7eb;
+        }
+
+
+        /* ================= REQUEST LIST ================= */
+        .request-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .request-card {
+            background: #f6f7f9;
+            border-radius: 10px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            min-height: 100px;
+        }
+
+        .request-left {
+            display: flex;
+            gap: 14px;
+        }
+
+        .request-number {
+            font-weight: 600;
+            color: #111827;
+            width: 20px;
+        }
+
+        .request-content {
+            font-size: 14px;
+            color: #374151;
+            max-width: 600px;
+        }
+
+        .request-status {
+            margin-top: 6px;
+        }
+
+        .status-badge {
+            background: #ec4899;
+            color: #ffffff;
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .request-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .update-btn {
+            background: #4f46e5;
+            color: #ffffff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .update-btn:hover {
+            background: #4338ca;
+        }
+
+        .dropdown-btn {
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #6b7280;
         }
     </style>
 
@@ -179,90 +247,113 @@
 
         <div class="laporan-container">
 
-            <!-- RIWAYAT -->
-            <div class="card-riwayat">
-                <div class="card-header-riwayat">Riwayat Laporan</div>
-
-                <div class="isi-card">
-                    <div class="riwayat-item">
-                        <div class="icon-check">✓</div> Lift Rusak
-                    </div>
-
-                    <div class="riwayat-item">
-                        <div class="icon-check">✓</div> Ubin Pecah
-                    </div>
-
-                    <div class="riwayat-item">
-                        <div class="icon-check">✓</div> LMS Bug di HP
-                    </div>
-
-                    <div class="riwayat-item">
-                        <div class="icon-check icon-process">⚙</div> AC Rusak
-                    </div>
-
-                    <div class="riwayat-item active">
-                        <div class="icon-check icon-purple">✓</div> Proyektor Tidak Berfungsi
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- TRACKING -->
-            <div class="card">
-                <div class="tracking-item">
-                    <div class="tracking-card">
-                        <div class="tracking-title">Laporan Diterima</div>
-                        <div class="tracking-date">Selasa, 23 Desember 2025 10:50</div>
-                        Proyektor di ruangan 403 tidak bisa dinyalakan.
-                        <br>
-                        <a href="#" class="tracking-link">Lihat Rincian...</a>
-                    </div>
-                </div>
-
-                {{-- <div class="tracking-item">
-                    <div class="tracking-card">
-                        <div class="tracking-title">Laporan Diproses</div>
-                        <div class="tracking-date">Selasa, 23 Desember 2025 12:00</div>
-                        Teknisi sedang memperbaiki proyektor.
-                        <br>
-                        <a href="#" class="tracking-link">Lihat Rincian...</a>
-                    </div>
-                </div> --}}
-
-                <div class="tracking-item">
-                    <div class="tracking-card">
-                        <div class="tracking-title">Laporan Selesai Ditangani</div>
-                        <div class="tracking-date">Selasa, 24 Desember 2025 10:50</div>
-                        Proyektor sudah selesai diperbaiki.
-                        <br>
-                        <a href="#" class="tracking-link">Lihat Rincian...</a>
-                    </div>
-                </div>
-            </div>
-
             <!-- RINCIAN -->
             <div class="card-rincian">
                 <div class="card-header-rincian">
-                    <i class="bi bi-info-circle"></i> Rincian Status
+                    <i class="bi bi-info-circle"></i>
+                    Rincian Status
                 </div>
+
                 <div class="isi-card">
-                    <div class="rincian-row"><i class="bi bi-check-circle-fill"></i> Laporan Diterima</div>
-                    <div class="rincian-row"><strong>Pelapor:</strong> Kevin Gunawan</div>
-                    <div class="rincian-row"><strong>Tanggal:</strong> Selasa, 23 Desember 2025</div>
-                    <div class="rincian-row"><strong>Kategori:</strong> Fasilitas Kampus</div>
-                    <div class="rincian-row"><strong>ID Laporan:</strong> 12345678</div>
+                    <div class="status-row">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Laporan Diterima
+                    </div>
+
+                    <div class="rincian-row"><strong>Pelapor</strong>: Kevin Gunawan</div>
+                    <div class="rincian-row"><strong>Tanggal</strong>: Selasa, 23 Desember 2025</div>
+                    <div class="rincian-row"><strong>Kategori</strong>: Fasilitas Kampus</div>
+                    <div class="rincian-row"><strong>ID Laporan</strong>: 12345678</div>
+
                     <div class="rincian-row">
-                        <strong>Prioritas:</strong>
+                        <strong>Prioritas</strong>:
                         <span class="badge">Tinggi</span>
                     </div>
 
-                    <div class="rincian-row" style="margin-top:10px;">
+                    <div class="deskripsi">
                         Proyektor di ruangan 403 tidak bisa dinyalakan.
-                        <a href="#" class="tracking-link">Lihat bukti</a>
                     </div>
                 </div>
             </div>
 
+
+            <!-- ALL REQUESTS -->
+            <div>
+                <h3>All requests</h3>
+                <input type="text" class="search-input" placeholder="Type here to search">
+                <div class="category-wrapper">
+                    <div class="category-label">Category</div>
+                    <div class="category-list">
+                        <div class="category-item active">Equipment</div>
+                        <div class="category-item">Security audit</div>
+                        <div class="category-item">Tool access</div>
+                    </div>
+                </div>
+
+                <div class="request-list">
+
+                    <div class="request-card">
+                        <div class="request-left">
+                            <div class="request-number">1</div>
+
+                            <div class="request-content">
+                                Hi, I just joined this week. Could you give me access to Softr as a collaborator?
+                                <div class="request-status">
+                                    <span class="status-badge">Done</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="request-right">
+                            <button class="update-btn">Update</button>
+                            <button class="dropdown-btn">
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="request-card">
+                        <div class="request-left">
+                            <div class="request-number">2</div>
+
+                            <div class="request-content">
+                                My laptop died. Need a new M2 Mac.
+                                <div class="request-status">
+                                    <span class="status-badge">Done</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="request-right">
+                            <button class="update-btn">Update</button>
+                            <button class="dropdown-btn">
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="request-card">
+                        <div class="request-left">
+                            <div class="request-number">2</div>
+
+                            <div class="request-content">
+                                My laptop died. Need a new M2 Mac.
+                                <div class="request-status">
+                                    <span class="status-badge">Done</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="request-right">
+                            <button class="update-btn">Update</button>
+                            <button class="dropdown-btn">
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
     </div>

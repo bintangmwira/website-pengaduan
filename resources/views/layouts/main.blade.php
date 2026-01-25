@@ -29,7 +29,7 @@
     }
 
     .nav-item .nav-link.active {
-        color: #525AF9 !important;
+        /* color: #525AF9 !important; */
         font-weight: 700;
     }
 
@@ -39,12 +39,24 @@
 
 
     .footer {
-        background-color: #525AF9;
-        color: #ffffff;
-        text-align: center;
-        padding: 12px 20px;
-        font-size: 13px;
-        line-height: 1.6;
+        background: #ffffff;
+        border-top: 1px solid #e5e7eb;
+        padding: 16px 24px;
+        margin-top: 40px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 12.5px;
+        color: #6b7280;
+    }
+
+    .footer-content .divider {
+        color: #d1d5db;
     }
 </style>
 
@@ -112,12 +124,17 @@
 
 
     <footer class="footer">
-        <p>
-            ©2025 Kelompok 2. All right reserved.<br>
-            Jl. Rangga Gading No.1, Gudang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat, 16123.
-            WA: 0813-1377-7672
-        </p>
+        <div class="footer-content">
+            <span>© 2025 Kelompok 2</span>
+            <span class="divider">•</span>
+            <span>All rights reserved</span>
+            <span class="divider">•</span>
+            <span>Bogor, Jawa Barat</span>
+            <span class="divider">•</span>
+            <span>WA: 0813-1377-7672</span>
+        </div>
     </footer>
+
 
     <script>
         function konfirmasiLogout() {
