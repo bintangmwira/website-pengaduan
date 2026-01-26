@@ -58,6 +58,21 @@
     .footer-content .divider {
         color: #d1d5db;
     }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-wrapper {
+        flex: 1;
+    }
 </style>
 
 <body>
@@ -65,7 +80,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('mahasiswa.pengaduan') }}">
-                <img src="{{ asset('assets/img/logo-wp2.png') }}" alt="Logo" height="50">
+                <img src="{{ asset('assets/img/logo-sipma.png') }}" alt="Logo" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>

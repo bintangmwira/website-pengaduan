@@ -101,14 +101,31 @@
 
         .search-wrapper {
             position: relative;
+            width: 100%;
         }
 
         .search-wrapper i {
             position: absolute;
-            left: 14px;
             top: 50%;
+            left: 14px;
             transform: translateY(-50%);
             color: #9e9e9e;
+            font-size: 16px;
+            pointer-events: none;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .search-box i {
+            color: #6b7280;
             font-size: 16px;
         }
 
@@ -277,10 +294,13 @@
             </div>
 
 
-            <!-- ALL REQUESTS -->
+            <!-- SEMUA LAPORAN -->
             <div>
-                <h3>All requests</h3>
-                <input type="text" class="search-input" placeholder="Type here to search">
+                <h3>Semua Laporan</h3>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="search-input" placeholder="Type here to search">
+                </div>
                 <div class="category-wrapper">
                     <div class="category-label">Category</div>
                     <div class="category-list">
@@ -298,46 +318,6 @@
 
                             <div class="request-content">
                                 Hi, I just joined this week. Could you give me access to Softr as a collaborator?
-                                <div class="request-status">
-                                    <span class="status-badge">Done</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="request-right">
-                            <button class="update-btn">Update</button>
-                            <button class="dropdown-btn">
-                                <i class="bi bi-chevron-down"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="request-card">
-                        <div class="request-left">
-                            <div class="request-number">2</div>
-
-                            <div class="request-content">
-                                My laptop died. Need a new M2 Mac.
-                                <div class="request-status">
-                                    <span class="status-badge">Done</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="request-right">
-                            <button class="update-btn">Update</button>
-                            <button class="dropdown-btn">
-                                <i class="bi bi-chevron-down"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="request-card">
-                        <div class="request-left">
-                            <div class="request-number">2</div>
-
-                            <div class="request-content">
-                                My laptop died. Need a new M2 Mac.
                                 <div class="request-status">
                                     <span class="status-badge">Done</span>
                                 </div>

@@ -28,9 +28,8 @@
                 border: none;
             }
             .logo {
-                max-width: 200px;
+                max-width: 180px;
                 margin: 0 auto 14px;
-                border-radius: 50%;
                 overflow: hidden;
                 display: flex;
                 justify-content: center;
@@ -105,7 +104,7 @@
 
     <div class="card">
         <div class="logo">
-            <img src="/assets/img/logo-wp-new.png" alt="Logo WP"  />
+            <img src="/assets/img/logo-sipma.png" alt="Logo SIPMA"  />
         </div>
 
         <p class="sub-header">Selamat Datang</p>
