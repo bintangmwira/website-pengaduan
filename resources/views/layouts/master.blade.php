@@ -47,7 +47,7 @@
     }
 
     .sidebar-logo {
-        max-width: 160px;
+        max-width: 140px;
         object-fit: contain;
     }
 
@@ -164,7 +164,7 @@
     <div class="sidebar">
 
         <div class="sidebar-header d-flex align-items-center">
-            <img src="{{ asset('assets/img/logo-wp-new.png') }}" alt="Logo" class="sidebar-logo">
+            <img src="{{ asset('assets/img/logo-sipma.png') }}" alt="Logo" class="sidebar-logo">
             {{-- <span class="sidebar-title">Web Pengaduan</span> --}}
         </div>
 

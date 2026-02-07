@@ -43,8 +43,10 @@ class MahasiswaController extends Controller
 
     public function allLaporan()
     {
-        return view('dashboard.mahasiswa.all-laporan');
+        $dataPengaduan = Pengaduan::where('status', 'diterima')->get();
+        return view('dashboard.mahasiswa.all-laporan',compact('dataPengaduan'));
     }
+
 
     
 }

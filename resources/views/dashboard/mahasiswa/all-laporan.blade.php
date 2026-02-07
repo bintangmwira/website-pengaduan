@@ -23,7 +23,7 @@
             background: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-            max-height: 330px;
+            max-height: 240px;
             padding-bottom: 8px;
         }
 
@@ -177,6 +177,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             border: 1px solid transparent;
+            text-decoration: none;
         }
 
         .category-item:hover {
@@ -258,6 +259,20 @@
             cursor: pointer;
             color: #6b7280;
         }
+
+        .request-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .request-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 
     <div class="wrapper">
@@ -278,8 +293,6 @@
                     </div>
 
                     <div class="rincian-row"><strong>Pelapor</strong>: Kevin Gunawan</div>
-                    <div class="rincian-row"><strong>Tanggal</strong>: Selasa, 23 Desember 2025</div>
-                    <div class="rincian-row"><strong>Kategori</strong>: Fasilitas Kampus</div>
                     <div class="rincian-row"><strong>ID Laporan</strong>: 12345678</div>
 
                     <div class="rincian-row">
@@ -293,46 +306,66 @@
                 </div>
             </div>
 
-
             <!-- SEMUA LAPORAN -->
             <div>
-                <h3>Semua Laporan</h3>
                 <div class="search-box">
                     <i class="bi bi-search"></i>
                     <input type="text" class="search-input" placeholder="Type here to search">
                 </div>
-                <div class="category-wrapper">
-                    <div class="category-label">Category</div>
-                    <div class="category-list">
-                        <div class="category-item active">Equipment</div>
-                        <div class="category-item">Security audit</div>
-                        <div class="category-item">Tool access</div>
-                    </div>
-                </div>
 
-                <div class="request-list">
+                 <p class="d-inline-flex gap-1 mt-4 mb-1">
+                    <a class="category-item" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Semua Laporan
+                    </a>
+                </p>
+                <p class="d-inline-flex gap-1 mt-4 mb-1">
+                    <a class="category-item" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Diterima
+                    </a>
+                </p>
+                <p class="d-inline-flex gap-1 mt-4 mb-1">
+                    <a class="category-item" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Diproses <i class="bi bi-gear-fill"></i>
+                    </a>
+                </p>
+                <p class="d-inline-flex gap-1 mt-4 mb-1">
+                    <a class="category-item" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false"
+                        aria-controls="">
+                        Selesai <i class="bi bi-check-circle-fill"></i>
+                    </a>
+                </p>
 
-                    <div class="request-card">
-                        <div class="request-left">
-                            <div class="request-number">1</div>
 
-                            <div class="request-content">
-                                Hi, I just joined this week. Could you give me access to Softr as a collaborator?
-                                <div class="request-status">
-                                    <span class="status-badge">Done</span>
+                @foreach ($dataPengaduan as $datas)
+                    <div class="request-list">
+                        <div class="request-card">
+                            <div class="request-left">
+                                <div class="request-number">{{ $loop->iteration }}</div>
+
+                                <div class="request-image">
+                                    <img src="{{ asset('assets/img/bukti.png') }}" alt="bukti">
                                 </div>
+
+                                <div class="request-content">
+                                    <div class="rincian-row"><strong>Tanggal</strong>: Selasa, 23 Desember 2025</div>
+                                    <div class="rincian-row"><strong>Keluhan</strong>: 12345678</div>
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="request-right">
+                                <button class="update-btn">Selengkapnya</button>
                             </div>
                         </div>
 
-                        <div class="request-right">
-                            <button class="update-btn">Update</button>
-                            <button class="dropdown-btn">
-                                <i class="bi bi-chevron-down"></i>
-                            </button>
-                        </div>
-                    </div>
 
-                </div>
+                    </div>
+                @endforeach
+
             </div>
         </div>
 
